@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PF.Mobile.App.Views.Items.ExpenseItemView"
+          xmlns:items="clr-namespace:PF.Mobile.App.Views.Items">
+    <ViewCell.View>
+        <Frame Style="{StaticResource ExpenseElement}" HorizontalOptions="Fill" CornerRadius="10" Margin="13">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+
+                
+                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" >
+
+                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}" FontSize="Large" HorizontalOptions="Fill" HorizontalTextAlignment="Start"/>
+                    <Label Text="{Binding Amount}" Style="{StaticResource BaseLabel}" FontSize="Large" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start"/>
+                   
+                </StackLayout>
+
+                <items:AmountItemView BindingContext="{Binding UserAmount}" IsVisible="{Binding VisibleUserAmount}" HorizontalOptions="End" VerticalOptions="Center" />
+
+            </StackLayout>
+        </Frame>
+    </ViewCell.View>
+</ViewCell>

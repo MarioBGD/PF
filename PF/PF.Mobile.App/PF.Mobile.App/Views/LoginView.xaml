@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PF.Mobile.App.Views.LoginView"
+             xmlns:pages="clr-namespace:PF.Mobile.App.Views"
+             Style="{StaticResource BaseContentPage}">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" Margin="25">
+            
+            <StackLayout Orientation="Vertical" Spacing="15" VerticalOptions="Start" Margin="0, 30, 0, 0">
+                    <Label Text="{Binding HeaderText}" TextColor="Red" Style="{StaticResource BaseLabel}"/>
+                <Label Text="{Binding ErrorText}" TextColor="Red" VerticalOptions="Center" Style="{StaticResource BaseLabel}"/>
+                <Entry Text="{Binding AuthData.Email}" Placeholder="Email" VerticalOptions="Center " Style="{StaticResource BaseEntry}"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Entry Text="{Binding AuthData.Name}" Placeholder="Name" IsVisible="{Binding IsRegisterForm}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Style="{StaticResource BaseEntry}"/>
+                    <Entry Text="{Binding AuthData.LastName}" Placeholder="Last name" IsVisible="{Binding IsRegisterForm}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Style="{StaticResource BaseEntry}"/>
+                </StackLayout>
+                
+                <Entry Text="{Binding AuthData.Password}" Placeholder="Password" VerticalOptions="Center" Style="{StaticResource BaseEntry}" IsPassword="True"/>
+                <Entry Text="{Binding AuthData.RepeatPassword}" Placeholder="Repeat password" IsVisible="{Binding IsRegisterForm}" VerticalOptions="Center" Style="{StaticResource BaseEntry}" IsPassword="True"/>
+                    <Button Text="{Binding SubmitText}" Command="{Binding SubmitCommand}" VerticalOptions="Center" Margin="0, 20, 0, 0"/>
+                </StackLayout>
+
+                <!--<StackLayout Orientation="Vertical" Spacing="10" VerticalOptions="CenterAndExpand">
+                    <Button Text="Login by Facebook" Command="{Binding LoginByFacebook}" VerticalOptions="End" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Spacing="10" VerticalOptions="CenterAndExpand">
+                    <Button Text="Login/Register" Command="{Binding LogRegToggleCommand}" />
+                </StackLayout>-->
+
+            <Label Text="" VerticalOptions="Fill" />
+            <Label Text="" VerticalOptions="FillAndExpand" />
+            <Label Text="" VerticalOptions="CenterAndExpand" />
+
+            <Label Text="{Binding SecondOptionTextInfo}" VerticalOptions="End" HorizontalOptions="Center" Style="{StaticResource BaseLabel}"/>
+            <Button Text="{Binding SecondOptionTextButton}" Command="{Binding LogRegToggleCommand}" VerticalOptions="End" HorizontalOptions="Center"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PF.Mobile.App.Views.Items.AmountItemView">
+    <ContentView.Content>
+        <StackLayout Spacing="0">
+            <Label Text="{Binding Text}" TextColor="{Binding AmountColor}" IsVisible="{Binding VisibleText}" Style="{StaticResource BaseLabel}" FontSize="Small" HorizontalOptions="Center" VerticalOptions="Center" Margin="0"/>
+            <Label Text="{Binding AmountFormatted}" TextColor="{Binding AmountColor}" Style="{StaticResource BaseLabel}" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" Margin="0"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:localPages="clr-namespace:PF.Mobile.App.Views"
+             x:Class="PF.Mobile.App.Views.GroupView"
+            xmlns:views="clr-namespace:PF.Mobile.App.Views">
+  <!--Pages can be added as references or inline-->
+    <NavigationPage.TitleView>
+        <views:AppBarView />
+    </NavigationPage.TitleView>
+
+    <localPages:ExpensesView Title="Expenses" />
+    <localPages:MembersView Title="Members" />
+    
+</TabbedPage>

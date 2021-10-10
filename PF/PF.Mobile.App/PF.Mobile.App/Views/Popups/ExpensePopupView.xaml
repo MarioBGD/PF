@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:items="clr-namespace:PF.Mobile.App.Views.Items"
+             x:Class="PF.Mobile.App.Views.Popups.ExpensePopupView"
+             xmlns:embededResources="clr-namespace:PF.Mobile.App.Resources"
+             CloseWhenBackgroundIsClicked="False"
+             BackgroundColor="#AA000000">
+
+    <StackLayout VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                 Style="{StaticResource BackgroundedStackLayout}"
+                   Margin="20"
+                   Spacing="15"
+                   Padding="20">
+
+        <Entry Text="{Binding Name}" Placeholder="for e.g. For fuel"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" ReturnCommand="{Binding OnValueEnteredCommand}" Margin="0, 0, 0, 25"/>
+        
+        <items:ExpensePeopleItemView BindingContext="{Binding PayersViewModel}" x:Name="PayersItem" VerticalOptions="CenterAndExpand"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" >
+            <Entry Text="{Binding MainAmount, Mode=TwoWay}" Placeholder="0,00" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Keyboard="Numeric" ReturnCommand="{Binding OnValueEnteredCommand}" Unfocused="AmountUnfocusedEvent" />
+            <Button
+                Text="{Binding CurrencyText}"
+                Command="{Binding ChangeCurrencyCommand}"
+                HeightRequest="50" WidthRequest="50"
+                HorizontalOptions="End"/>
+            <Button
+                ImageSource="{embededResources:ImageResource Source=PF.Mobile.App.Resources.swapicon.png}"
+                Command="{Binding SwapCommand}" IsVisible="{Binding SwapButtonVisible}"
+                HeightRequest="50"
+                BackgroundColor="Transparent"
+                HorizontalOptions="End"/>
+        </StackLayout>
+
+        <items:ExpensePeopleItemView BindingContext="{Binding DebtorsViewModel}" x:Name="DebtorsItem" VerticalOptions="CenterAndExpand"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Ok" Command="{Binding OkCommand}" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+    </StackLayout>
+
+</pages:PopupPage>

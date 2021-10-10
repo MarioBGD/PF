@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:items="clr-namespace:PF.Mobile.App.Views.Items"
+             x:Class="PF.Mobile.App.Views.Popups.InviteFriendPopupView"
+                 CloseWhenBackgroundIsClicked="True"
+                 BackgroundClickedCommand="{Binding OkCommand}">
+
+    <StackLayout VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                 Style="{StaticResource BackgroundedStackLayout}"
+                   Margin="10"
+                   Spacing="10"
+                   Padding="10">
+          
+        <ListView x:Name="InvitationsListView"
+                  VerticalOptions="Start"
+                  ItemsSource="{Binding Friends}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <items:PersonItemView />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Ok" Command="{Binding OkCommand}" />
+
+    </StackLayout>
+
+</pages:PopupPage>

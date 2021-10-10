@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PF.Mobile.App.Views.FriendsView"
+             xmlns:items="clr-namespace:PF.Mobile.App.Views.Items"
+             Style="{StaticResource BaseContentPage}">
+
+    <StackLayout>
+
+        <Button Text="Add friend" Command="{Binding AddFriendCommand}"/>
+
+
+        <ListView x:Name="InvitationsListView"
+                  VerticalOptions="Start"
+                  IsGroupingEnabled="{Binding AllowGrouping}"
+                  GroupDisplayBinding="{Binding GroupName}"
+                  ItemsSource="{Binding GroupedPeople}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <items:PersonItemView />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <Label Text="You have no friends yet!" 
+               VerticalOptions="Center"
+               IsVisible="{Binding NoPeople}"
+               Style="{StaticResource BaseLabel}"/>
+
+    </StackLayout>
+</ContentPage>

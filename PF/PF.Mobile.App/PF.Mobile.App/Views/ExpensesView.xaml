@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PF.Mobile.App.Views.ExpensesView"
+             xmlns:items="clr-namespace:PF.Mobile.App.Views.Items"
+             Style="{StaticResource BaseContentPage}">
+
+    <AbsoluteLayout>
+        <!--#03A9F4"  bardzo ladny kolor -->
+        <Grid BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="ExpensesListView"
+                  VerticalOptions="Start"
+                  ItemsSource="{Binding Expenses}"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <items:ExpenseItemView />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+
+        <Frame BackgroundColor="CornflowerBlue" CornerRadius="60" HasShadow="true"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               AbsoluteLayout.LayoutBounds="1,1,-1,-1"
+               HeightRequest="30"
+               Margin="25">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddExpenseCommand}"/>
+            </Frame.GestureRecognizers>
+            
+            <Image Source="addexpenseicon.png"/>
+        </Frame>
+
+    </AbsoluteLayout>
+
+
+</ContentPage>

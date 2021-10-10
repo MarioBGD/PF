@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:items="clr-namespace:PF.Mobile.App.Views.Items"
+             x:Class="PF.Mobile.App.Views.Popups.ComboBoxPopupView"
+                 CloseWhenBackgroundIsClicked="True"
+                 BackgroundColor="Transparent">
+
+    <StackLayout VerticalOptions="Start"
+                 Margin="20, 40, 60, 80"
+                   HorizontalOptions="Center"
+                   BackgroundColor="WhiteSmoke"
+                   Spacing="10"
+                   Padding="10"
+                 x:Name="MainLayout">
+
+        <ListView x:Name="ItemsListView"
+                  VerticalOptions="Start"
+                  ItemsSource="{Binding Items}"
+                  HasUnevenRows="True"
+                  HeightRequest="80">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Spacing="15" HeightRequest="40">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            
+                            <Frame CornerRadius="50" Padding="0" HorizontalOptions="Start">
+                                <Image Source="testprofile.jpg" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Label Text="{Binding Text}" HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</pages:PopupPage>

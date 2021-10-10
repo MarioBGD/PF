@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PF.Mobile.App.Views.MembersView"
+             xmlns:items="clr-namespace:PF.Mobile.App.Views.Items"
+             Style="{StaticResource BaseContentPage}">
+
+    <AbsoluteLayout>
+        <Grid BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="InvitationsListView"
+                  VerticalOptions="Start"
+                  ItemsSource="{Binding Members}"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <items:PersonItemView />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+        
+        <Frame BackgroundColor="CornflowerBlue" CornerRadius="60" HasShadow="true"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               AbsoluteLayout.LayoutBounds="1,1,-1,-1"
+               HeightRequest="30"
+               Margin="25">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddMemberCommand}"/>
+            </Frame.GestureRecognizers>
+
+            <Image Source="addpersoniconblack.png"/>
+        </Frame>
+        
+    </AbsoluteLayout>
+</ContentPage>

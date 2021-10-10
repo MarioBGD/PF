@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Helpers="clr-namespace:PF.Mobile.App.Models"
+             x:Class="PF.Mobile.App.Views.Items.ExpensePeopleItemView"
+             BackgroundColor="Transparent">
+  <ContentView.Content>
+      
+        <StackLayout VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Margin="0"
+                   Padding="0">
+
+            <ListView x:Name="PeopleListView"
+                  VerticalOptions="Start"
+                  ItemsSource="{Binding People}"
+                  HasUnevenRows="True"
+                  HeightRequest="{Binding Height}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="False">
+                            <StackLayout Orientation="Horizontal" HeightRequest="55" Margin="0, 5, 0, 5" Spacing="15">
+
+                                <Frame CornerRadius="50" Padding="0" HorizontalOptions="Start">
+                                    <Image Source="usericon.jpg" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+
+                                <Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                
+                                <Label Text="{Binding Amount}" FontSize="Medium" HorizontalOptions="End" VerticalOptions="Center"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal" HeightRequest="55" IsVisible="{Binding ShowBigAddButton}">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddPersonCommand}"/>
+                </StackLayout.GestureRecognizers>
+
+                <Image Source="addpersonicongray.png"/>
+                <Label Text="Add person" Style="{StaticResource BaseLabel}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+
+            </StackLayout>
+           
+
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding ShowSmallAddButton}">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddPersonCommand}"/>
+                </StackLayout.GestureRecognizers>
+
+                <Label Text="+ Add person" FontSize="Small" IsVisible="{Binding ShowSmallAddButton}"/>
+            </StackLayout>
+
+        </StackLayout>
+      
+    </ContentView.Content>
+</ContentView>
