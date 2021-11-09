@@ -17,6 +17,11 @@ namespace PF.Mobile.App.Views
         {
             InitializeComponent();
             BindingContext = new FriendsViewModel();
+
+            FriendsListView.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            {
+                FriendsListView.SelectedItem = null;
+            };
         }
     }
 }

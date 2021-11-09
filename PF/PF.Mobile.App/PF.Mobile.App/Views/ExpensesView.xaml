@@ -15,7 +15,8 @@
             <ListView x:Name="ExpensesListView"
                   VerticalOptions="Start"
                   ItemsSource="{Binding Expenses}"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <items:ExpenseItemView />

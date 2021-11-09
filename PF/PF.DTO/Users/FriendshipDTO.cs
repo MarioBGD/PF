@@ -17,6 +17,5 @@ namespace PF.DTO.Users
         public long UserOneId { get; set; }
         public long UserTwoId { get; set; }
         public FriendshipStatus Status { get; set; }
-
     }
 }

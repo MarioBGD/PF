@@ -33,5 +33,20 @@ namespace PF.WebApi.BLL.Services
                 return usersDto;
             }
         }
+
+        public async Task<UserDTO> UpdateUser(UserDTO userDTO)
+        {
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                UsersRepository usersRepo = new UsersRepository(uow);
+
+                UserEntity usersEntity = _mapper.Map<UserEntity>(userDTO);
+                await usersRepo.Update(usersEntity);
+
+                uow.Commit();
+
+                return userDTO;
+            }
+        }
     }
 }

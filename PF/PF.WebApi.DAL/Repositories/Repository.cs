@@ -139,7 +139,7 @@ namespace PF.WebApi.DAL.Repositories
 
             properties.ForEach(property =>
             {
-                if (!property.Equals("Id"))
+                if (!property.Equals("Id") && !property.Equals("CreatedDate") && !property.Equals("CreatedUserId"))
                 {
                     updateQuery.Append($"{property}=@{property},");
                 }

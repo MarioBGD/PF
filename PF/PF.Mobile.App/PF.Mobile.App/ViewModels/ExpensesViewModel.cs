@@ -1,10 +1,12 @@
 ﻿using PF.DTO.Expenses;
 using PF.Mobile.App.DAL;
+using PF.Mobile.App.Models;
 using PF.Mobile.App.ViewModels.Items;
 using PF.Mobile.App.ViewModels.Popups;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -33,14 +35,30 @@ namespace PF.Mobile.App.ViewModels
             }
 
             IEnumerable<ExpenseDTO> expenses = (IEnumerable<ExpenseDTO>)data;
+            expenses = expenses.OrderByDescending(x => x.CreatedDate).AsEnumerable();
 
             Device.InvokeOnMainThreadAsync(() =>
             {
                 Expenses.Clear();
 
+                var timeConverter = new TimeDifferenceToTimeIntervalConverter(DateTime.Now);
+                int index = 0;
+                string lastTimeSpan = "";
+
                 foreach (var expense in expenses)
                 {
-                    Expenses.Add(new ExpenseItemViewModel(expense));
+                    var exp = new ExpenseItemViewModel(expense);
+
+                    string timeSpan = timeConverter.ToTimeSinceString(exp.CreatedDate);
+
+                    if (timeSpan != lastTimeSpan)
+                    {
+                        exp.ShowHeader = true;
+                        exp.HeaderText = timeSpan;
+                        lastTimeSpan = timeSpan;
+                    }
+
+                    Expenses.Add(exp);
                 }
             });
         }

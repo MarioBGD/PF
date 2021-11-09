@@ -13,6 +13,7 @@ namespace PF.Mobile.App.DAL
 
         public static string AuthToken { get; private set; }
         public static long UserId { get; private set; }
+        public static UserDTO UserDTO { get; set; }
         public static string Username { get; set; }
         public static string Password { get; set; }
 

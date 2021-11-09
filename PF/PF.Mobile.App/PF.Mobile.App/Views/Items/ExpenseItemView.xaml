@@ -2,22 +2,74 @@
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PF.Mobile.App.Views.Items.ExpenseItemView"
+          xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
           xmlns:items="clr-namespace:PF.Mobile.App.Views.Items">
     <ViewCell.View>
-        <Frame Style="{StaticResource ExpenseElement}" HorizontalOptions="Fill" CornerRadius="10" Margin="13">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
 
-                
-                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" >
+        <toolkit:Expander>
+            <toolkit:Expander.Header>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Fill" Margin="8, 0, 8, 0">
 
-                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}" FontSize="Large" HorizontalOptions="Fill" HorizontalTextAlignment="Start"/>
-                    <Label Text="{Binding Amount}" Style="{StaticResource BaseLabel}" FontSize="Large" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start"/>
-                   
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Margin="5, 9, 0, -11" IsVisible="{Binding ShowHeader}">
+                        <!--<Line X1="0" X2="5" Y1="0" Y2="0" StrokeThickness="2" BackgroundColor="DarkMagenta" VerticalOptions="Center" HorizontalOptions="Start"/>-->
+                        <Label Text="{Binding HeaderText}" HorizontalOptions="Start" FontSize="Caption" Style="{DynamicResource SecondaryLabel}" Margin="0"/>
+                        <!--<Line X1="0" X2="100" Y1="0" Y2="0" StrokeThickness="2" BackgroundColor="DarkMagenta" VerticalOptions="Center" HorizontalOptions="Fill"/>-->
+                    </StackLayout>
+                    
+                    <Frame Style="{StaticResource ExpenseElement}" HorizontalOptions="Fill" CornerRadius="10" Margin="0, 9, 0, 3" Padding="0">
+                        <StackLayout Orientation="Vertical" Margin="20, 10, 20, 10">
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+
+                                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" >
+
+                                    <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}" FontSize="Large" HorizontalOptions="Fill" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Amount}" Style="{StaticResource BaseLabel}" FontSize="Small" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start"/>
+                                     
+                                </StackLayout>
+
+                                <items:AmountItemView BindingContext="{Binding UserAmount}" IsVisible="{Binding VisibleUserAmount}" HorizontalOptions="End" VerticalOptions="Center" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
+            </toolkit:Expander.Header>
 
-                <items:AmountItemView BindingContext="{Binding UserAmount}" IsVisible="{Binding VisibleUserAmount}" HorizontalOptions="End" VerticalOptions="Center" />
+            <Frame Style="{StaticResource ExpenseElement}" HorizontalOptions="Fill" CornerRadius="10" Margin="13, -10, 13, 13">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    
+                    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Small"
+                                    Text="created" />
+                            <Label FontSize="Small"
+                                    Text="{Binding CreatedDate, StringFormat='{0:dd-MM hh:mm}'}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Small"
+                                    Text="by" />
+                            <Label FontSize="Small"
+                                    Text="{Binding CreatedUser}" />
+                        </StackLayout>
+                    </StackLayout>
 
-            </StackLayout>
-        </Frame>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                        <Label FontSize="Small"
+                                    Text="paid by:" />
+                        <Label FontSize="Small"
+                                    Text="{Binding Payers}" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                        <Label FontSize="Small"
+                                    Text="debtors:" />
+                        <Label FontSize="Small"
+                                    Text="{Binding Debtors}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </toolkit:Expander>
     </ViewCell.View>
 </ViewCell>

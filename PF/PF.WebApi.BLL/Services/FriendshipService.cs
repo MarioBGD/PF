@@ -73,10 +73,12 @@ namespace PF.WebApi.BLL.Services
                     {
                         UserOneId = senderUserId,
                         UserTwoId = reciverUserId,
-                        Status = FriendshipDTO.FriendshipStatus.Invited
+                        Status = FriendshipDTO.FriendshipStatus.Invited,
                     };
 
                     friendshipEntity = _mapper.Map<FriendshipEntity>(friendshipDTO);
+                    friendshipEntity.CreatedDate = DateTime.Now;
+
                     await friendshipsRepo.Add(friendshipEntity);
                     uow.Commit();
                 }

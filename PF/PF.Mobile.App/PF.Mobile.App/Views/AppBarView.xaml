@@ -7,42 +7,20 @@
 
             <Label Text="{Binding Header}" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="Black"/>
 
-            
+
             <StackLayout Orientation="Vertical" HorizontalOptions="End" IsVisible="{Binding ShowPersonalInfo}">
                 <Label Text="{Binding BarName}" FontSize="Medium" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
                 <Label Text="{Binding BarLogin}" FontSize="Small" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
 
-
-            <Grid HorizontalOptions="End"
-                    VerticalOptions="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ProfileCommand}" />
-                </Grid.GestureRecognizers>
-
-                <Frame CornerRadius="50" Padding="0" Grid.Row="0" BackgroundColor="Transparent"
+            <Frame CornerRadius="50" Padding="0" Grid.Row="0" BackgroundColor="Transparent" Margin="0, 5, 5, 0"
                         Grid.Column="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ProfileCommand}" />
+                </Frame.GestureRecognizers>
 
-                    <Image Source="usericon.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="55">
-                    </Image>
-                </Frame>
-                <Label HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                        Text="{Binding BarNameInitials}"
-                       FontSize="30"
-                        TextColor="Black"
-                        Grid.Row="0"
-                        Grid.Column="0"/>
-            </Grid>
-            
+                <Image Source="{Binding AvatarImage}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="55"/>
+            </Frame>
 
         </StackLayout>
     </ContentView.Content>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PF.Mobile.App.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -14,10 +15,11 @@ namespace PF.Mobile.App.ViewModels.Items
 
         private bool isCheckded;
         private string name;
-        private string nameInitials;
+        private ImageSource avatarImage;
         private string positiveButtonText;
         private string negativeButtonText;
         private string checkStatusImageSource;
+
 
         public string Name
         {
@@ -25,10 +27,10 @@ namespace PF.Mobile.App.ViewModels.Items
             set => SetProperty(ref name, value);
         }
 
-        public string NameInitials
+        public ImageSource AvatarImage
         {
-            get => nameInitials;
-            set => SetProperty(ref nameInitials, value);
+            get => avatarImage;
+            set => SetProperty(ref avatarImage, value);
         }
 
         public string PositiveButtonText
@@ -172,7 +174,8 @@ namespace PF.Mobile.App.ViewModels.Items
         public void UpdateUserData(PF.DTO.Users.UserDTO userData)
         {
             Name = userData.Name + " " + userData.LastName;
-            NameInitials = PF.Common.Util.GetInitials(userData.Name, userData.LastName);
+
+            AvatarImage = AvatarSourceToImageConverter.Convert(userData.AvatarSrc);
         }
 
         private void SetMode(Mode mode)

@@ -11,7 +11,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <ListView x:Name="InvitationsListView"
+            <ListView x:Name="MembersListView"
                   VerticalOptions="Start"
                   ItemsSource="{Binding Members}"
                   HasUnevenRows="True">

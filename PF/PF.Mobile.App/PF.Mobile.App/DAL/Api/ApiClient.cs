@@ -41,6 +41,9 @@ namespace PF.Mobile.App.DAL.Api
         public async static Task<ApiResult<string>> RemoveFriend(long id) =>
             await new ApiRequest<string>().Invoke($"friendships?id={id}", Method.Delete);
 
+        public async static Task<ApiResult<string>> UpdateMyUser(UserDTO userDTO) =>
+            await new ApiRequest<string>().Invoke($"users", Method.Put, userDTO);
+
         public async static Task<ApiResult<string>> Register(AuthDTO authDTO) =>
             await new ApiRequest<string>().Invoke("auth", Method.Post, authDTO);
 

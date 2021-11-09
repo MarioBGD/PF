@@ -10,5 +10,6 @@ namespace PF.WebApi.Infrastructure.Interfaces.IServices
     public interface IUserService
     {
         public Task<IEnumerable<UserDTO>> GetUsers(List<long> ids);
+        public Task<UserDTO> UpdateUser(UserDTO user);
     }
 }

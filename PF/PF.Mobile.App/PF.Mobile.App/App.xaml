@@ -35,6 +35,10 @@
                 <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}" />
             </Style>
 
+            <Style x:Key="SecondaryLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource PlaceholderTextColorDark}, Light={StaticResource PlaceholderTextColor}}" />
+            </Style>
+            
             <Style x:Key="BaseEntry" TargetType="Entry">
                 <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}" />
                 <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark={StaticResource PlaceholderTextColorDark}, Light={StaticResource PlaceholderTextColor}}" />
@@ -43,6 +47,7 @@
             <Style x:Key="ExpenseElement" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ElementBackgroundColorDark}, Light={StaticResource ElementBackgroundColor}}" />
             </Style>
+            
         </ResourceDictionary>
         
     </Application.Resources>

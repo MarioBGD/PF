@@ -10,7 +10,7 @@
         <Button Text="Add friend" Command="{Binding AddFriendCommand}"/>
 
 
-        <ListView x:Name="InvitationsListView"
+        <ListView x:Name="FriendsListView"
                   VerticalOptions="Start"
                   IsGroupingEnabled="{Binding AllowGrouping}"
                   GroupDisplayBinding="{Binding GroupName}"

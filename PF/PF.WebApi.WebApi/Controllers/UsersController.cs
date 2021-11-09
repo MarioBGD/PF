@@ -33,5 +33,20 @@ namespace PF.WebApi.WebApi.Controllers
 
             return Ok(users);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<IEnumerable<UserDTO>>> Update([FromBody] UserDTO userDTO)
+        {
+            var userId = await SessionManager.Authorize(HttpContext);
+
+            if (userDTO == null || userDTO.Id != userId)
+            {
+                return BadRequest();
+            }
+
+            UserDTO user = await _userService.UpdateUser(userDTO);
+
+            return Ok(user);
+        }
     }
 }

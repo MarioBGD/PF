@@ -1,5 +1,6 @@
 ﻿using PF.DTO.Users;
 using PF.Mobile.App.DAL;
+using PF.Mobile.App.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,7 @@ namespace PF.Mobile.App.ViewModels
         private string barNameInitials;
         private string barLogin;
         private string barBalance;
-        private ImageSource profilePicture;
+        private ImageSource avatarImage;
         private bool showPersonalInfo;
 
 
@@ -61,10 +62,10 @@ namespace PF.Mobile.App.ViewModels
             get => barBalance;
             set => SetProperty(ref barBalance, value);
         }
-        public ImageSource ProfilePicture
+        public ImageSource AvatarImage
         {
-            get => profilePicture;
-            set => SetProperty(ref profilePicture, value);
+            get => avatarImage;
+            set => SetProperty(ref avatarImage, value);
         }
         public bool ShowPersonalInfo
         {
@@ -80,20 +81,6 @@ namespace PF.Mobile.App.ViewModels
             ProfileCommand = new Command(async ()=> await OnProfileClick(), () => !IsBusy);
 
             DataManager.Init();
-
-            //Common.Identicon.NIdenticon.Init();
-            //ProfilePicture = ImageSource.FromStream(() =>
-            //{
-                
-            //    using (MemoryStream ms = new MemoryStream())
-            //    {
-            //        var bitmap = Common.Identicon.NIdenticon.Generate(23345);
-            //        bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            //        return ms;
-            //    }
-            //});
-           
-            //Common.Identicon.NIdenticon.Generate(23345);
         }
 
         public void Refresh()
@@ -109,6 +96,8 @@ namespace PF.Mobile.App.ViewModels
                 BarLogin = userDTO.Login;
                 BarName = userDTO.Name + " " + userDTO.LastName;
                 BarNameInitials = PF.Common.Util.GetInitials(userDTO.Name, userDTO.LastName);
+                AvatarImage = AvatarSourceToImageConverter.Convert(userDTO.AvatarSrc);
+                SessionManager.UserDTO = userDTO;
             }
             catch (Exception e)
             {
@@ -120,7 +109,7 @@ namespace PF.Mobile.App.ViewModels
         {
             IsBusy = true;
 
-            string[] buttons = new string[] { "Log out" };
+            string[] buttons = new string[] { "Log out", "Change profile image" };
 
             var choice = await Acr.UserDialogs.UserDialogs.Instance.ActionSheetAsync(
                 null, "Cancel", null, System.Threading.CancellationToken.None, buttons);
@@ -130,6 +119,11 @@ namespace PF.Mobile.App.ViewModels
                 if (choice == "Log out")
                 {
                     await App.LogOut();
+                }
+                else if (choice == "Change profile image")
+                {
+                    var view = new Views.Popups.SelectProfilePicturePopupView();
+                    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(view);
                 }
             }
 

@@ -17,6 +17,11 @@ namespace PF.Mobile.App.Views
         {
             InitializeComponent();
             BindingContext = new ExpensesViewModel();
+
+            ExpensesListView.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            {
+                ExpensesListView.SelectedItem = null;
+            };
         }
     }
 }

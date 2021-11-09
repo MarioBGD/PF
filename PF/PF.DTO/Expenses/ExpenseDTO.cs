@@ -11,6 +11,8 @@ namespace PF.DTO.Expenses
         public int Mode { get; set; }
         public long GroupId { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
         public List<PaymentDTO> Payments { get; set; }
     }
 }

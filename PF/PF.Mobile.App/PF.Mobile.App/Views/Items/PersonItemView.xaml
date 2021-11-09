@@ -14,45 +14,21 @@
 
             <Label Text="{Binding CheckStatusImageSource}" Style="{StaticResource BaseLabel}" FontSize="Large" IsVisible="{Binding VisibleSelector}" HorizontalOptions="End" VerticalOptions="Center"/>
 
-            <Grid HorizontalOptions="Start"
-                    VerticalOptions="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ProfileCommand}" />
-                </Grid.GestureRecognizers>
-
-                <Frame CornerRadius="60" Padding="0" Grid.Row="0"
+            <Frame CornerRadius="60" Padding="0" Grid.Row="0"
                         Grid.Column="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ProfileCommand}" />
+                </Frame.GestureRecognizers>
 
-                    <!--<Image Source="{embededResources:ImageResource Source=PF.Mobile.App.Resources.usericon.png}" HorizontalOptions="Center" VerticalOptions="Center">-->
-                    <Image Source="usericon.png" HorizontalOptions="Center" VerticalOptions="Center">
-                    </Image>
-                </Frame>
-                <Label HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                        Text="{Binding NameInitials}"
-                       FontSize="30"
-                        TextColor="Black"
-                        Grid.Row="0"
-                        Grid.Column="0"/>
-            </Grid>
-            <!--<Frame CornerRadius="50" Padding="0" HorizontalOptions="Start">
-                <Image Source="testprofile.jpg" HorizontalOptions="Center" VerticalOptions="Center"/>
-            </Frame>-->
+                <Image Source="{Binding AvatarImage}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Frame>
+
 
             <Label Text="{Binding Name}" Style="{StaticResource BaseLabel}" FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
             <Button Text="{Binding PositiveButtonText}" Command="{Binding PositiveCommand}" IsVisible="{Binding VisiblePosButton}" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="46"/>
             <Button Text="{Binding NegativeButtonText}" Command="{Binding NegativeCommand}" IsVisible="{Binding VisibleNegButton}" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="46"/>
-            <!--<Label Text="{Binding AmountFormatted}" TextColor="LimeGreen" Style="{StaticResource BaseLabel}" FontSize="Large" IsVisible="{Binding VisibleBalance}" HorizontalOptions="End" VerticalOptions="Center"/>-->
             <items:AmountItemView BindingContext="{Binding Amount}" IsVisible="{Binding VisibleBalance}" HorizontalOptions="End" VerticalOptions="Center" />
-
 
         </StackLayout>
     </ViewCell.View>

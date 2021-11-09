@@ -20,6 +20,10 @@ namespace PF.Mobile.App.Views
             InitializeComponent();
             BindingContext = new GroupsViewModel();
             VVV = (View)FindByName("cb");
+            GroupsListView.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            {
+                GroupsListView.SelectedItem = null;
+            };
         }
     }
 }
