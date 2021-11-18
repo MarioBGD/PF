@@ -1,22 +1,13 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using DryIoc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using DryIoc;
+using PF.App.XamForms.Composition;
 
 namespace PF.App.Droid.Composition
 {
     public static class AndroidFormsComposition
     {
-        public static void Configure(IRegistrator registrator)
+        public static void Configure(IContainer container)
         {
-            Core.Composition.CoreComposition.Configure(registrator);
+            XamarinFormsComposition.Configure(container);
         }
     }
 }

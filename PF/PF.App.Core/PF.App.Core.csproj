@@ -8,4 +8,8 @@
     <PackageReference Include="DryIoc.dll" Version="4.8.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PF.App.Contracts\PF.App.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
