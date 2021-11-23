@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
     <PackageReference Include="Splat" Version="13.1.42" />
     <PackageReference Include="Splat.DryIoc" Version="13.1.22" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
@@ -20,5 +21,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\PF.App.Contracts\PF.App.Contracts.csproj" />
     <ProjectReference Include="..\..\PF.App.Core\PF.App.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Startup\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -1,8 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PF.App.XamForms.App">
+<Application
+    x:Class="PF.App.XamForms.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:rgp="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
     <Application.Resources>
+
+        <ResourceDictionary>
+            <Color x:Key="TextColor">#000000</Color>
+            <Color x:Key="TextColorDark">#ffffff</Color>
+
+            <Color x:Key="PlaceholderTextColor">#303030</Color>
+            <Color x:Key="PlaceholderTextColorDark">#909090</Color>
+
+            <Color x:Key="WindowBackgroundColor">#f2f2f7</Color>
+            <Color x:Key="WindowBackgroundColorDark">#000000</Color>
+
+            <Color x:Key="ElementBackgroundColor">#ffffff</Color>
+            <Color x:Key="ElementBackgroundColorDark">#303030</Color>
+
+            <Style TargetType="rgp:PopupPage" x:Key="BasePopupPage">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource WindowBackgroundColorDark}, Light={StaticResource WindowBackgroundColor}}" />
+            </Style>
+
+            <Style TargetType="ContentPage" x:Key="BaseContentPage">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource WindowBackgroundColorDark}, Light={StaticResource WindowBackgroundColor}}" />
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="BackgroundedStackLayout">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ElementBackgroundColorDark}, Light={StaticResource ElementBackgroundColor}}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="BaseLabel">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SecondaryLabel">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource PlaceholderTextColorDark}, Light={StaticResource PlaceholderTextColor}}" />
+            </Style>
+
+            <Style TargetType="Entry" x:Key="BaseEntry">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}" />
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark={StaticResource PlaceholderTextColorDark}, Light={StaticResource PlaceholderTextColor}}" />
+            </Style>
+
+            <Style TargetType="Frame" x:Key="ExpenseElement">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ElementBackgroundColorDark}, Light={StaticResource ElementBackgroundColor}}" />
+            </Style>
+
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>

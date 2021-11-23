@@ -16,6 +16,9 @@ namespace PF.App.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            
+            Acr.UserDialogs.UserDialogs.Init(this);
+            Rg.Plugins.Popup.Popup.Init(this);
 
             var app = new PF.App.XamForms.App();
             LoadApplication(app);

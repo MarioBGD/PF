@@ -7,8 +7,8 @@ namespace PF.App.Contracts.Navigation
 {
     public interface INavigationService
     {
-        Task NavigateNextToAsync(NavigationState state);
-        Task NavigateBackToAsync(NavigationState state);
+        Task NavigateNextToAsync<TViewModel>();
+        Task NavigateBackToAsync<TViewModel>();
         Task RemoveAllPagesAsync();
     }
 }

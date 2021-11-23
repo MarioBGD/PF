@@ -3,6 +3,7 @@ using PF.App.Contracts.Startup;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PF.App.Core.ViewModels.Startup;
 
 namespace PF.App.Core.Startup
 {
@@ -18,7 +19,7 @@ namespace PF.App.Core.Startup
 
         public void Start()
         {
-            _navigationService.NavigateNextToAsync(NavigationState.Authentication);
+            _navigationService.NavigateNextToAsync<LoginViewModel>();
         }
     }
 }

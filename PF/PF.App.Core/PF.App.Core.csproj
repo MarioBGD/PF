@@ -6,10 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="DryIoc.dll" Version="4.8.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="106.13.0" />
+    <PackageReference Include="Splat" Version="13.1.42" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PF.App.Contracts\PF.App.Contracts.csproj" />
+    <ProjectReference Include="..\PF.Common\PF.Common.csproj" />
+    <ProjectReference Include="..\PF.DTO\PF.DTO.csproj" />
   </ItemGroup>
 
 </Project>

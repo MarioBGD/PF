@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Foundation;
 using UIKit;
 
@@ -22,10 +21,12 @@ namespace PF.App.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            //Rg.Plugins.Popup.Popup.Init();
+
             global::Xamarin.Forms.Forms.Init();
 
-            var xamApp = new PF.App.XamForms.App();
-            LoadApplication(xamApp);
+            //var xamApp = new PF.App.App();
+            //LoadApplication(xamApp);
 
             return base.FinishedLaunching(app, options);
         }

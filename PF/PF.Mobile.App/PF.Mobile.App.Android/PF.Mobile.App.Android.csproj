@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -109,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PF.Mobile.App\PF.Mobile.App.csproj">
-      <Project>{3481FCAB-9104-4504-95D2-F508016ADCC1}</Project>
+      <Project>{691393E4-7C9E-41CD-BBB9-152C648921E8}</Project>
       <Name>PF.Mobile.App</Name>
     </ProjectReference>
   </ItemGroup>

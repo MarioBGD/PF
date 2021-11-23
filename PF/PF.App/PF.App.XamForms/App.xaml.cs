@@ -2,6 +2,7 @@
 using PF.App.XamForms.Navigation;
 using Splat;
 using System;
+using PF.App.Contracts.Startup;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +17,7 @@ namespace PF.App.XamForms
             MainPage = new NavigationPage();
 
             Locator.Current.GetService<IFormsNavigationProvider>()!.Navigation = MainPage.Navigation;
+            Locator.Current.GetService<IStartupCoordinator>()!.Start();
         }
 
         protected override void OnStart()
