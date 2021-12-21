@@ -26,6 +26,7 @@
 
             <Style TargetType="ContentPage" x:Key="BaseContentPage">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource WindowBackgroundColorDark}, Light={StaticResource WindowBackgroundColor}}" />
+                <!-- <Setter Property="NavigationPage.HasBackButton" Value="False" /> -->
             </Style>
 
             <Style TargetType="StackLayout" x:Key="BackgroundedStackLayout">

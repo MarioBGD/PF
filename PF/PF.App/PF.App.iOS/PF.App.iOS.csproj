@@ -66,6 +66,8 @@
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Composition\IosFormsComposition.cs" />
+    <Compile Include="Configuration\FormsConfiguration.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -126,17 +128,28 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.562" />
+    <PackageReference Include="DryIoc.dll" Version="4.8.1" />
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>2.0.0.11</Version>
     </PackageReference>
+    <PackageReference Include="Splat" Version="11.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\PF.App\PF.App.XamForms.csproj">
-      <Project>{F165FDBD-92F0-4CC5-9CB3-4BC54B620050}</Project>
+    <ProjectReference Include="..\PF.App.XamForms\PF.App.XamForms.csproj">
+      <Project>{f165fdbd-92f0-4cc5-9cb3-4bc54b620050}</Project>
       <Name>PF.App.XamForms</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\addexpenseicon.png" />
+    <BundleResource Include="Resources\addpersoniconblack.png" />
+    <BundleResource Include="Resources\addpersonicongray.png" />
+    <BundleResource Include="Resources\groupicon.png" />
+    <BundleResource Include="Resources\testprofile.jpg" />
+    <BundleResource Include="Resources\usericon.png" />
   </ItemGroup>
 </Project>

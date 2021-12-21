@@ -19,7 +19,11 @@ namespace PF.App.Core.Composition
             registrator.Register<IAuthenticationService, AuthenticationService>();
             registrator.Register<IHasher, SHA512>();
             registrator.Register<IApiCallsService, ApiService>();
+            registrator.Register<IDataGetterService, ApiDataGetterService>(); //TODO: global or only local
+            registrator.Register<IDataManager, DataManager>();
             registrator.Register<ISessionManager, SessionManager>(Reuse.Singleton);
+            registrator.Register<IUsersService, UsersService>();
+            registrator.Register<IFriendsService, FriendsService>();
         }
     }
 }

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PF.App.XamForms.Views.Components.AppBarView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal">
+
+            <Label
+                FontSize="Large"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding Header}"
+                TextColor="Black"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+
+
+            <StackLayout
+                HorizontalOptions="End"
+                IsVisible="{Binding ShowPersonalInfo}"
+                Orientation="Vertical">
+                <Label
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding BarName}" />
+                <Label
+                    FontSize="Small"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding BarLogin}" />
+            </StackLayout>
+
+            <Frame
+                BackgroundColor="Transparent"
+                CornerRadius="50"
+                Grid.Column="0"
+                Grid.Row="0"
+                Margin="0,5,5,0"
+                Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ProfileCommand}" />
+                </Frame.GestureRecognizers>
+
+                <Image
+                    HeightRequest="55"
+                    HorizontalOptions="Center"
+                    Source="{Binding AvatarImage}"
+                    VerticalOptions="Center" />
+            </Frame>
+
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

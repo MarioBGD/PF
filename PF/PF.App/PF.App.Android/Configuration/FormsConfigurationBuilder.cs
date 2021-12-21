@@ -7,7 +7,7 @@ namespace PF.App.Droid.Configuration
     {
         public static void Build()
         {
-             var droidContainer = new Container(p => p.WithTrackingDisposableTransients());
+            var droidContainer = new Container(p => p.WithTrackingDisposableTransients());
 
             Core.Configuration.CoreConfigurationBuilder.Build(
                 droidContainer,

@@ -4,6 +4,7 @@ using Splat.DryIoc;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PF.App.Contracts;
 
 namespace PF.App.Core.Configuration
 {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
+using PF.App.iOS.Configuration;
 using UIKit;
 
 namespace PF.App.iOS
@@ -21,12 +22,14 @@ namespace PF.App.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            //Rg.Plugins.Popup.Popup.Init();
+            Rg.Plugins.Popup.Popup.Init();
 
             global::Xamarin.Forms.Forms.Init();
 
-            //var xamApp = new PF.App.App();
-            //LoadApplication(xamApp);
+            FormsConfiguration.Build();
+            
+            var xamApp = new PF.App.XamForms.App();
+            LoadApplication(xamApp);
 
             return base.FinishedLaunching(app, options);
         }

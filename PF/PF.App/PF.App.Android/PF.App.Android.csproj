@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DryIoc.dll">
-      <Version>4.8.2</Version>
+      <Version>4.8.1</Version>
     </PackageReference>
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.514</Version>
@@ -79,6 +79,12 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\addexpenseicon.png" />
+    <AndroidResource Include="Resources\drawable\addpersoniconblack.png" />
+    <AndroidResource Include="Resources\drawable\addpersonicongray.png" />
+    <AndroidResource Include="Resources\drawable\groupicon.png" />
+    <AndroidResource Include="Resources\drawable\testprofile.jpg" />
+    <AndroidResource Include="Resources\drawable\usericon.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />

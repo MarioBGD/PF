@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ViewCell
+    x:Class="PF.App.XamForms.Views.Components.PersonComponentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:items="clr-namespace:PF.App.XamForms.Views.Components"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ViewCell.View>
+        <StackLayout
+            HeightRequest="55"
+            Margin="10"
+            Orientation="Horizontal"
+            Spacing="15">
+
+            <StackLayout.GestureRecognizers>
+
+                <TapGestureRecognizer Command="{Binding TapCommand}" />
+            </StackLayout.GestureRecognizers>
+
+            <Label
+                FontSize="Large"
+                HorizontalOptions="End"
+                IsVisible="{Binding VisibleSelector}"
+                Style="{StaticResource BaseLabel}"
+                Text="{Binding CheckStatusImageSource}"
+                VerticalOptions="Center" />
+
+
+            <Frame
+                CornerRadius="60"
+                Grid.Column="0"
+                Grid.Row="0"
+                Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ProfileCommand}" />
+                </Frame.GestureRecognizers>
+
+                <Image
+                    HorizontalOptions="Center"
+                    Source="{Binding AvatarImage}"
+                    VerticalOptions="Center" />
+            </Frame>
+
+
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource BaseLabel}"
+                Text="{Binding Name}"
+                VerticalOptions="Center" />
+            <Button
+                Command="{Binding PositiveCommand}"
+                HorizontalOptions="End"
+                IsVisible="{Binding VisiblePosButton}"
+                Text="{Binding PositiveButtonText}"
+                VerticalOptions="Center"
+                WidthRequest="46" />
+            <Button
+                Command="{Binding NegativeCommand}"
+                HorizontalOptions="End"
+                IsVisible="{Binding VisibleNegButton}"
+                Text="{Binding NegativeButtonText}"
+                VerticalOptions="Center"
+                WidthRequest="46" />
+            <items:AmountComponentView
+                BindingContext="{Binding Amount}"
+                HorizontalOptions="End"
+                IsVisible="{Binding VisibleBalance}"
+                VerticalOptions="Center" />
+
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>
