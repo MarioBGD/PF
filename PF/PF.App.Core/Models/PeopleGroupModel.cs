@@ -6,8 +6,6 @@ namespace PF.App.Core.Models
 {
     public class PeopleGroup : ObservableCollection<PersonComponentViewModel>
     {
-        public string GroupName { get; }
-
         public PeopleGroup(string name)
         {
             GroupName = name;
@@ -17,5 +15,7 @@ namespace PF.App.Core.Models
         {
             GroupName = name;
         }
+        
+        public string GroupName { get; }
     }
 }

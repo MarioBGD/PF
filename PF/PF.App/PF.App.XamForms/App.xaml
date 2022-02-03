@@ -29,6 +29,11 @@
                 <!-- <Setter Property="NavigationPage.HasBackButton" Value="False" /> -->
             </Style>
 
+            <Style TargetType="ContentView" x:Key="BaseContentView">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource WindowBackgroundColorDark}, Light={StaticResource WindowBackgroundColor}}" />
+                <Setter Property="Padding" Value="12, 0, 12, 0" />
+            </Style>
+
             <Style TargetType="StackLayout" x:Key="BackgroundedStackLayout">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ElementBackgroundColorDark}, Light={StaticResource ElementBackgroundColor}}" />
             </Style>

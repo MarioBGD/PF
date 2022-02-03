@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Configurations>Debug;Release;Debug noth</Configurations>
+    <LangVersion>9</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PF.WebApi.BLL\PF.WebApi.BLL.csproj" />
-    <ProjectReference Include="..\PF.WebApi.Infrastructure\PF.WebApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\PF.WebApi.BLL.Core\PF.WebApi.BLL.Core.csproj" />
+    <ProjectReference Include="..\PF.WebApi.BLL.Contracts\PF.WebApi.BLL.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,18 +9,20 @@ namespace PF.App.Core.ViewModels
         public enum Mode
         { Invitation, ViewWithoutBalance, ViewWithBalance, OnePosBtn, Selector }
 
-        private bool isCheckded;
-        private string name;
+        private bool _isCheckded;
+        private string _name;
         //private ImageSource avatarImage;
-        private string positiveButtonText;
-        private string negativeButtonText;
-        private string checkStatusImageSource;
+        private string _positiveButtonText;
+        private string _negativeButtonText;
+        private string _checkStatusImageSource;
+        private decimal _amount;
+        private string _currency;
 
 
         public string Name
         {
-            get => name;
-            set => SetProperty(ref name, value);
+            get => _name;
+            set => SetProperty(ref _name, value);
         }
 
         //TODO:images
@@ -32,29 +34,39 @@ namespace PF.App.Core.ViewModels
 
         public string PositiveButtonText
         {
-            get => positiveButtonText;
-            set => SetProperty(ref positiveButtonText, value);
+            get => _positiveButtonText;
+            set => SetProperty(ref _positiveButtonText, value);
         }
 
         public string NegativeButtonText
         {
-            get => negativeButtonText;
-            set => SetProperty(ref negativeButtonText, value);
+            get => _negativeButtonText;
+            set => SetProperty(ref _negativeButtonText, value);
         }
 
          public bool IsChecked
          {
-            get => isCheckded;
-            set => SetProperty(ref isCheckded, value);
+            get => _isCheckded;
+            set => SetProperty(ref _isCheckded, value);
          }
 
         public string CheckStatusImageSource
         {
-            get => checkStatusImageSource;
-            set => SetProperty(ref checkStatusImageSource, value);
+            get => _checkStatusImageSource;
+            set => SetProperty(ref _checkStatusImageSource, value);
         }
 
-        public AmountComponentViewModel Amount { get; set; }
+        public decimal Amount
+        {
+            get => _amount;
+            set => SetProperty(ref _amount, value);
+        }
+        
+        public string Currency
+        {
+            get => _currency;
+            set => SetProperty(ref _currency, value);
+        }
 
         public bool VisibleBalance { get; set; }
         public bool VisiblePosButton { get; set; }
@@ -122,12 +134,11 @@ namespace PF.App.Core.ViewModels
             UserId = id;
             Name = "user " + id;
             OnItemTapped = onItemTapped;
+            Amount = amount;
 
             TapCommand = new SimpleCommand(() => OnItemTapped?.Invoke(this));
 
             SetMode(Mode.ViewWithBalance);
-
-            Amount.Amount = amount;
         }
 
         public PersonComponentViewModel(long id,
@@ -200,11 +211,6 @@ namespace PF.App.Core.ViewModels
                 case Mode.Selector:
                     VisibleSelector = true;
                     break;
-            }
-
-            if (VisibleBalance && Amount == null)
-            {
-                Amount = new AmountComponentViewModel();
             }
 
             OnPropertyChanged("VisibleBalance");

@@ -14,7 +14,8 @@
                 Style="{StaticResource BaseLabel}"
                 Text="{Binding AmountFormatted}"
                 TextColor="{Binding AmountColor}"
-                VerticalOptions="Center" />
+                VerticalOptions="Center"
+                x:Name="AmountLabel" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

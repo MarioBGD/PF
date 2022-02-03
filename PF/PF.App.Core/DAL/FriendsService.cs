@@ -18,6 +18,22 @@ namespace PF.App.Core.DAL
             _dataGetterService = dataGetterService;
             _usersService = usersService;
         }
+
+        public void GetTest(IFriendsService.OnFriendsDataUpdate callback)
+        {
+            var friends = new List<Friend>
+            {
+                new Friend {Name = "Friend One", FriendId = 1, Status = Friend.FriendshipStatus.Invitation},
+                new Friend {Name = "Friend Two", FriendId = 2, Status = Friend.FriendshipStatus.Invitation},
+                new Friend {Name = "Friend Three", FriendId = 3, Status = Friend.FriendshipStatus.Invitation},
+                new Friend {Name = "Friend Four", FriendId = 4, Status = Friend.FriendshipStatus.Accepted},
+                new Friend {Name = "Friend Five", FriendId = 5, Status = Friend.FriendshipStatus.Accepted},
+                new Friend {Name = "Friend Six", FriendId = 6, Status = Friend.FriendshipStatus.Accepted},
+                new Friend {Name = "Friend Seven", FriendId = 7, Status = Friend.FriendshipStatus.Accepted}
+            };
+
+            callback.Invoke(friends);
+        }
         
         public void GetFriends(IFriendsService.OnFriendsDataUpdate callback)
         {
@@ -40,22 +56,10 @@ namespace PF.App.Core.DAL
                 Name = x.Name,
                 LastName = x.LastName,
                 Login = x.Login,
-                AvatarSrc = x.AvatarSrc
+                AvatarSrc = x.AvatarSrc,
+                Status = (Friend.FriendshipStatus)(int)friendships.FirstOrDefault(y => y.UserOneId == x.Id || y.UserTwoId == x.Id)?.Status
             });
 
-            foreach (var friend in friends)
-            {
-                var friendship = friendships.FirstOrDefault(x => x.UserOneId == friend.FriendId || x.UserTwoId == friend.FriendId);
-
-                if (friendship == null)
-                {
-                    //TODO: logs
-                    continue;
-                }
-
-                friend.Status = (Friend.FriendshipStatus)(int)friendship.Status;
-            }
-            
             callback.Invoke(friends);
         }
 

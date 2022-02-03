@@ -29,7 +29,8 @@ namespace PF.App.Core.ViewModels
             AddFriendCommand = new SimpleCommand(OnAddFriendClick);
             GroupedPeople = new ObservableCollection<PeopleGroup>();
 
-            _friendsService.GetFriends(OnFriendsUpdate);
+            //_friendsService.GetFriends(OnFriendsUpdate);
+            _friendsService.GetTest(OnFriendsUpdate);
         }
         
         public ICommand AddFriendCommand { get; }

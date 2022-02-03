@@ -18,6 +18,7 @@ namespace PF.App.XamForms
             InitializeComponent();
 
             MainPage = new NavigationPage();
+            MainPage.Navigation.PushAsync(new StartupView()).Wait();
             
             Locator.Current.GetService<IFormsNavigationProvider>()!.Navigation = MainPage.Navigation;
             Locator.Current.GetService<IStartupCoordinator>()!.Start();

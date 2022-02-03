@@ -4,7 +4,7 @@ using Xamarin.Essentials;
 
 namespace PF.App.XamForms.Storage
 {
-    public class SecureStorageService : ISecureStorageService
+    internal class SecureStorageService : ISecureStorageService
     {
         public async Task<bool> SaveStringAsync(string key, string value)
         {

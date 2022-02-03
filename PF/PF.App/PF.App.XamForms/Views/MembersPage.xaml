@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    Style="{StaticResource BaseContentView}"
+    x:Class="PF.App.XamForms.Views.MembersPage"
+    x:DataType="viewModels:MembersViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:components="clr-namespace:PF.App.XamForms.Views.Components;assembly=PF.App.XamForms"
+    xmlns:viewModels="clr-namespace:PF.App.Core.ViewModels;assembly=PF.App.Core"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <StackLayout>
+        <ListView
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding Members}"
+            SeparatorVisibility="None"
+            VerticalOptions="FillAndExpand"
+            x:Name="MembersList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <components:PersonComponentView />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentView>

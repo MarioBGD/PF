@@ -34,9 +34,9 @@ namespace PF.App.Core.DAL.Api
             return res.ResultContent;
         }
 
-        public async Task<IEnumerable<GroupDTO>> GetGroups(List<long> ids = null) 
+        public async Task<IEnumerable<GroupDTO>> GetAllMyGroups()
         {
-            var res = await new ApiRequest<IEnumerable<GroupDTO>>().Invoke("groups?ids=" + string.Join(',', ids), _authToken, Method.Get);
+            var res = await new ApiRequest<IEnumerable<GroupDTO>>().Invoke("groups", _authToken, Method.Get);
             return res.ResultContent;
         }
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PF.Common.Extensions;
-using PF.WebApi.Infrastructure.Interfaces.IServices;
+using PF.WebApi.BLL.Contracts;
 using PF.WebApi.WebApi.Authorization;
 
 namespace PF.WebApi.WebApi.Controllers

@@ -2,10 +2,6 @@
 using PF.App.Contracts.Navigation;
 using PF.App.Core.Composition;
 using PF.App.XamForms.Navigation;
-using DryIoc;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using PF.App.Contracts;
 using PF.App.Contracts.Components;
 using PF.App.Contracts.Storage;
@@ -14,7 +10,6 @@ using PF.App.Core.ViewModels.Startup;
 using PF.App.XamForms.Components;
 using PF.App.XamForms.Storage;
 using PF.App.XamForms.Views;
-using PF.App.XamForms.Views.Components;
 using PF.App.XamForms.Views.Startup;
 
 namespace PF.App.XamForms.Composition
@@ -30,17 +25,19 @@ namespace PF.App.XamForms.Composition
             registrator.Register<ISecureStorageService, SecureStorageService>();
             registrator.Register<IUiThreadInvoker, UiThreadInvoker>();
             registrator.Register<IDialogsManager, DialogsManagerComponent>();
+            registrator.Register<ICacheStorage, CacheStorage>();
             
             //Pages + VM
             registrator.RegisterPage<LoginView, LoginViewModel>();
-            registrator.RegisterPage<MainView, MainViewModel>();
+            registrator.RegisterPage<MainPage, MainViewModel>();
+            registrator.RegisterPage<GroupPage, GroupViewModel>();
             //registrator.RegisterPage<FriendsView, FriendsViewModel>();
             //registrator.RegisterPage<GroupView, GroupViewModel>();
             
             //VM
             registrator.Register<AppBarViewModel, AppBarViewModel>();
             registrator.Register<FriendsViewModel, FriendsViewModel>();
-            registrator.Register<GroupsViewModel, GroupsViewModel>();
+            registrator.Register<GroupsListViewModel, GroupsListViewModel>();
             registrator.Register<ExpensesViewModel, ExpensesViewModel>();
             registrator.Register<MembersViewModel, MembersViewModel>();
         }

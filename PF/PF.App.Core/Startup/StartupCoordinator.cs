@@ -1,8 +1,5 @@
 ﻿using PF.App.Contracts.Navigation;
 using PF.App.Contracts.Startup;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using PF.App.Contracts.Storage;
 using PF.App.Core.DAL.Contracts;
@@ -23,8 +20,7 @@ namespace PF.App.Core.Startup
             _secureStorageService = secureStorageService;
             _authenticationService = authenticationService;
         }
-
-
+        
         public void Start()
         {
             Task.Run(async () =>
@@ -38,7 +34,7 @@ namespace PF.App.Core.Startup
                 }
                 else
                 {
-                    await _authenticationService.LoginAsync(username, hashedPassword);
+                    //var authRes = await _authenticationService.LoginAsync(username, hashedPassword);
                     await _navigationService.NavigateNextToAsync<MainViewModel>();
                 }
 

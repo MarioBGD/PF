@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.2.0.562" />
     <PackageReference Include="DryIoc.dll" Version="4.8.1" />
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
     <PackageReference Include="Splat" Version="14.1.1" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />

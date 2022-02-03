@@ -128,7 +128,7 @@ namespace PF.App.Core.ViewModels.Startup
                 await _secureStorageService.SaveStringAsync("psw", hashedPassword);
 
                 await _navigationService.RemoveAllPagesAsync();
-                await _navigationService.NavigateNextToAsync<FriendsViewModel>();
+                await _navigationService.NavigateNextToAsync<MainViewModel>();
             }
             else
             {

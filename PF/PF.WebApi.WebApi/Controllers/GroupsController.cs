@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PF.DTO.Groups;
-using PF.WebApi.Infrastructure.Interfaces.IServices;
 using PF.WebApi.WebApi.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PF.Common.Extensions;
+using PF.WebApi.BLL.Contracts;
 
 namespace PF.WebApi.WebApi.Controllers
 {
@@ -22,23 +22,32 @@ namespace PF.WebApi.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GroupDTO>>> Get(string ids)
+        public async Task<ActionResult<IEnumerable<GroupDTO>>> Get(string ids = null)
         {
             long userId = await SessionManager.Authorize(HttpContext);
 
-            List<long> numberIds = ids.ToLongList();
-            IEnumerable<GroupDTO> groups = null;
-
-            if (numberIds.Count == 0)
+            if (string.IsNullOrEmpty(ids))
             {
-                groups = await _groupService.GetAllGroupsOfUser(userId);
+                var groups = await _groupService.GetAllGroupsOfUser(userId);
+                return Ok(groups);
             }
             else
-            {
-                groups = await _groupService.GetSelectedGroupsOfUser(userId, numberIds);
-            }
+            { //OLD
 
-            return Ok(groups);
+                List<long> numberIds = ids.ToLongList();
+                IEnumerable<GroupDTO> groups = null;
+
+                if (numberIds.Count == 0)
+                {
+                    groups = await _groupService.GetAllGroupsOfUser(userId);
+                }
+                else
+                {
+                    groups = await _groupService.GetSelectedGroupsOfUser(userId, numberIds);
+                }
+
+                return Ok(groups);
+            }
         }
 
         [HttpPost]

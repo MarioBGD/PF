@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView
-    Style="{StaticResource BaseContentPage}"
+    Style="{StaticResource BaseContentView}"
     x:Class="PF.App.XamForms.Views.FriendsView"
+    x:DataType="viewModels:FriendsViewModel"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:items="clr-namespace:PF.App.XamForms.Views.Components;assembly=PF.App.XamForms"
+    xmlns:viewModels="clr-namespace:PF.App.Core.ViewModels;assembly=PF.App.Core"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
 
@@ -17,6 +19,7 @@
             HasUnevenRows="True"
             IsGroupingEnabled="{Binding AllowGrouping}"
             ItemsSource="{Binding GroupedPeople}"
+            SeparatorVisibility="None"
             VerticalOptions="Start"
             x:Name="FriendsListView">
             <ListView.ItemTemplate>

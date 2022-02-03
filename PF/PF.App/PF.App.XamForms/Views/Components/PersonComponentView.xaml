@@ -8,7 +8,7 @@
     <ViewCell.View>
         <StackLayout
             HeightRequest="55"
-            Margin="10"
+            Margin="0,10"
             Orientation="Horizontal"
             Spacing="15">
 
@@ -63,7 +63,8 @@
                 VerticalOptions="Center"
                 WidthRequest="46" />
             <items:AmountComponentView
-                BindingContext="{Binding Amount}"
+                Amount="{Binding Amount}"
+                Currency="{Binding Currency}"
                 HorizontalOptions="End"
                 IsVisible="{Binding VisibleBalance}"
                 VerticalOptions="Center" />

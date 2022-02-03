@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    Style="{StaticResource BaseContentView}"
+    x:Class="PF.App.XamForms.Views.GroupsListView"
+    x:DataType="viewModels:GroupsListViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:componentViewModels="clr-namespace:PF.App.Core.ViewModels.Components;assembly=PF.App.Core"
+    xmlns:viewModels="clr-namespace:PF.App.Core.ViewModels;assembly=PF.App.Core"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <StackLayout>
+        <Button Command="{Binding CreateGroupCommand}" Text="Create Group" />
+
+        <ListView
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding Groups}"
+            SeparatorVisibility="None"
+            VerticalOptions="FillAndExpand"
+            x:Name="GroupsList">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="componentViewModels:GroupItemViewModel">
+
+                    <ViewCell Height="130">
+                        <ViewCell.View>
+                            <StackLayout Margin="10" Orientation="Horizontal">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OnTapCommand}" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Frame
+                                    CornerRadius="25"
+                                    HeightRequest="130"
+                                    Padding="0">
+                                    <Image
+                                        HorizontalOptions="Center"
+                                        Source="groupicon.png"
+                                        VerticalOptions="Center" />
+                                </Frame>
+
+                                <Label
+                                    FontSize="Large"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentView>

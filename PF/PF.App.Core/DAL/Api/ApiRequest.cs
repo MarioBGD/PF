@@ -11,7 +11,9 @@ namespace PF.App.Core.DAL.Api
 {
     public class ApiRequest<T>
     {
-        //private static readonly string ApiConnectionString = "http://192.168.0.53:44317/api/";
+        // private static readonly string ApiConnectionString = "http://192.168.0.192:44317/api/";
+        //private static readonly string ApiConnectionString = "http://192.168.0.192:5000/api/";
+        //private static readonly string ApiConnectionString = "http://192.168.222.90:5000/api/";
         private static readonly string ApiConnectionString = "http://pfapp.hostingasp.pl/api/";
         
         public async Task<ApiResult<T>> Invoke(string query, string authToken, Method method = Method.Get, object body = null)

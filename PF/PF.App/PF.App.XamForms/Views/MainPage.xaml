@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    Style="{StaticResource BaseContentPage}"
+    x:Arguments="viewModels:MainViewModel"
+    x:Class="PF.App.XamForms.Views.MainPage"
+    x:DataType="viewModels:MainViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:components="clr-namespace:PF.App.XamForms.Views.Components;assembly=PF.App.XamForms"
+    xmlns:localPages="clr-namespace:PF.App.XamForms.Views;assembly=PF.App.XamForms"
+    xmlns:viewModels="clr-namespace:PF.App.Core.ViewModels;assembly=PF.App.Core"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+
+    <NavigationPage.TitleView>
+        <components:AppBarView />
+    </NavigationPage.TitleView>
+
+    <xct:TabView>
+        <xct:TabViewItem Text="Friends">
+            <localPages:FriendsView />
+        </xct:TabViewItem>
+
+        <xct:TabViewItem Text="Other">
+            <localPages:GroupsListView />
+        </xct:TabViewItem>
+    </xct:TabView>
+
+    <!--    -->
+    <!-- <localPages:GroupsView Title="Groups"> -->
+    <!--    -->
+    <!-- </localPages:GroupsView> -->
+
+</ContentPage>

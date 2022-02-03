@@ -9,6 +9,7 @@ namespace PF.App.Core.DAL.Contracts
         delegate void OnFriendsDataUpdate(IEnumerable<Friend> friends);
 
         void GetFriends(OnFriendsDataUpdate callback);
+        void GetTest(OnFriendsDataUpdate callback);
         Task<ServiceResult> AddFriendAsync(long friendId);
         Task<ServiceResult> AddFriendByName(string name);
         Task<ServiceResult> RemoveFriendAsync(long friendId);

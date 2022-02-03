@@ -13,7 +13,7 @@ namespace PF.App.Core.DAL.Contracts
         
         Task<IEnumerable<FriendshipDTO>> GetFriendships(string status = "-1");
         
-        Task<IEnumerable<GroupDTO>> GetGroups(List<long> ids = null);
+        Task<IEnumerable<GroupDTO>> GetAllMyGroups();
 
         Task<IEnumerable<MembershipDTO>> GetMemberships(long? groupId);
 

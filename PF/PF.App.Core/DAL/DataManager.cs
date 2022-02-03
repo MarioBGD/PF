@@ -58,7 +58,7 @@ namespace PF.App.Core.DAL
                 {
                     DataType.MyUser => await GetterService.GetMyUser(),
                     DataType.Friendships => await GetterService.GetFriendships(),
-                    DataType.Groups => await GetterService.GetGroups((List<long>)req.Args),
+                    DataType.Groups => await GetterService.GetAllMyGroups(),
                     DataType.Memberships => await GetterService.GetMemberships((Nullable<long>)req.Args),
                     DataType.Users => await GetterService.GetUsers((List<long>)req.Args),
                     DataType.Expenses => await GetterService.GetExpenses((Nullable<long>)req.Args),

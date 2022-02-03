@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ViewCell
+    x:Class="PF.App.XamForms.Views.Components.ExpenseComponentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:components="clr-namespace:PF.App.XamForms.Views.Components;assembly=PF.App.XamForms"
+    xmlns:items="clr-namespace:PF.App.XamForms.Views.Components"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:viewModels="clr-namespace:PF.App.Core.ViewModels.Components;assembly=PF.App.Core"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ViewCell.View>
+        <toolkit:Expander>
+            <toolkit:Expander.Header>
+                <Frame
+                    CornerRadius="10"
+                    HorizontalOptions="Fill"
+                    Margin="0,6"
+                    Padding="0"
+                    Style="{StaticResource ExpenseElement}">
+                    <StackLayout Margin="20,10,20,10" Orientation="Vertical">
+
+                        <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+
+                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
+
+                                <Label
+                                    FontSize="Large"
+                                    HorizontalOptions="Fill"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{StaticResource BaseLabel}"
+                                    Text="{Binding Name}" />
+                                <Label
+                                    FontSize="Small"
+                                    HorizontalOptions="StartAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{StaticResource BaseLabel}"
+                                    Text="{Binding Amount}" />
+
+                            </StackLayout>
+
+                            <items:AmountComponentView
+                                BindingContext="{Binding UserAmount}"
+                                HorizontalOptions="End"
+                                IsVisible="{Binding VisibleUserAmount}"
+                                VerticalOptions="Center" />
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+            </toolkit:Expander.Header>
+
+            <Frame
+                CornerRadius="10"
+                HorizontalOptions="Fill"
+                Margin="0,-10,0,13"
+                Style="{StaticResource ExpenseElement}">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+
+                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Small" Text="created" />
+                            <Label FontSize="Small" Text="{Binding CreatedDate, StringFormat='{0:dd-MM hh:mm}'}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Small" Text="by" />
+                            <Label FontSize="Small" Text="{Binding CreatedUser}" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="End" Orientation="Vertical">
+                        <Label FontSize="Small" Text="paid by:" />
+                        <Label FontSize="Small" Text="{Binding Payers}" />
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="End" Orientation="Vertical">
+                        <Label FontSize="Small" Text="debtors:" />
+                        <Label FontSize="Small" Text="{Binding Debtors}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </toolkit:Expander>
+    </ViewCell.View>
+</ViewCell>
